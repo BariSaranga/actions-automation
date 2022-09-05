@@ -1,5 +1,5 @@
 ---
-  - name: Push changes
+name: Push changes
   # You may pin to the exact commit or the version.
   # uses: actions-go/push@7ad7ce209f2a038e7bca929b7a4c92026363f856
 uses: actions-go/push@v1
@@ -25,4 +25,4 @@ with:
       # Fail the action in case there is nothing to do.
         fail-if-empty: # optional
       # Auth token used to fetch the repository. The token is stored in the local git config, which enables your scripts to run authenticated git commands. The post-job step removes the token from the git config. [Learn more about creating and using encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
-        ...
+        '...
