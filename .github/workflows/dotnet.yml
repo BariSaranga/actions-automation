@@ -10,21 +10,22 @@ jobs:
   build:
 
     runs-on: windows-latest
+    strategy:
+      matrix:
+        include:
+        - dotnet-version: '3.1.x'
+          tfm: 'netcoreapp3.1'
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET
+    - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: ${{ matrix.dotnet-version }}
     - name: check directory content
       run: dir
     - name: install dependencies
-      run: dotnet restore
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 6.0.x
+      run: dotnet restore -p:TargetFramework=${{ matrix.tfm }}
     - name: Build
-      run: dotnet build
+      run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build
+      run: dotnet test --no-restore --verbosity normal -f=${{ matrix.tfm }}
