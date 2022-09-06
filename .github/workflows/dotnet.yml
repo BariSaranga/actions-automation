@@ -17,8 +17,8 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
+        run: cd "D:\a\actions-automation\"
     - name: install dependencies
-      working-directory: ./D
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
