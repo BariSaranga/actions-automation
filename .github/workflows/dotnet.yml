@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: check directory content
-      run: dir /d
+      run: dir
     - name: install dependencies
       run: dotnet restore
     - name: Build
