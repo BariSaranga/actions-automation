@@ -18,6 +18,7 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: install dependencies
+      working-directory: ./D
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
