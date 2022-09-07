@@ -28,4 +28,11 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal -f=${{ matrix.tfm }}
+      run: dotnet test --logger trx --no-restore --verbosity normal -f=${{ matrix.tfm }}
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: success() || failure()
+      with:
+        name: Tests
+        path: WebApi.Tests/TestResults/*.trx
+        reporter: dotnet-trx
