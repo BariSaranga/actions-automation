@@ -30,7 +30,7 @@ jobs:
     - name: check directory content
       run: dir
     - name: Test
-      run: dotnet SeleniumExample.cs --logger trx --verbosity normal -f=${{ matrix.tfm }}
+      run: dotnet GoogleSearchExample.cs --logger trx --verbosity normal -f=${{ matrix.tfm }}
     - name: Test Report
       uses: dorny/test-reporter@v1
       if: success() || failure()
