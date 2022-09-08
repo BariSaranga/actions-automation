@@ -27,6 +27,8 @@ jobs:
       run: dotnet restore -p:TargetFramework=${{ matrix.tfm }}
     - name: Build
       run: dotnet build --no-restore
+    - name: check directory content
+      run: dir
     - name: Test
       run: dotnet test --logger trx --verbosity normal -f=${{ matrix.tfm }}
     - name: Test Report
