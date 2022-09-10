@@ -29,6 +29,8 @@ jobs:
       run: dotnet build --no-restore
     - name: check directory content
       run: dir
+    - name: MSTest initiation
+      run: dotnet new mstest
     - name: Test
       run: dotnet D:\a\actions-automation\actions-automation\bin\Debug\netcoreapp2.1\SeleniumExample.dll --logger trx --verbosity normal -f=${{ matrix.tfm }}
     - name: Test Report
