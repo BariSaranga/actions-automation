@@ -32,11 +32,11 @@ jobs:
     - name: MSTest initiation
       run: dotnet new mstest
     - name: Test
-      run: C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe D:\a\actions-automation\actions-automation\bin\Debug\netcoreapp2.1\SeleniumExample.dll /logger:trx -f=${{ matrix.tfm }}
+      run: D:\a\actions-automation\actions-automation\bin\Debug\netcoreapp2.1>"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" SeleniumExample.dll /logger:trx -f=${{ matrix.tfm }}
     - name: Test Report
       uses: dorny/test-reporter@v1
       if: success() || failure()
       with:
         name: Tests
-        path: WebApi.Tests/TestResults/*.trx
+        path: D:\a\actions-automation\actions-automation\bin\Debug\netcoreapp2.1\TestResults\*.trx
         reporter: dotnet-trx
