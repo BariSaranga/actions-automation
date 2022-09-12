@@ -32,7 +32,7 @@ jobs:
     - name: MSTest initiation
       run: dotnet new mstest
     - name: Test
-      run: dotnet D:\a\actions-automation\actions-automation\bin\Debug\netcoreapp2.1\SeleniumExample.dll --logger trx --verbosity normal -f=${{ matrix.tfm }}
+      run: C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe D:\a\actions-automation\actions-automation\bin\Debug\netcoreapp2.1\SeleniumExample.dll /logger:trx -f=${{ matrix.tfm }}
     - name: Test Report
       uses: dorny/test-reporter@v1
       if: success() || failure()
